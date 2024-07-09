@@ -8,14 +8,14 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-
-      },
+      backgroundImage: {},
       colors: {
-        primary: "#FF2157",        
+        primary: "#FF2157",
         secondary: "#212121",
-        third: '#A5455C',
+        third: "#A5455C",
         button: "#FAFAFA",
+        cardPrimary: "#B5002C",
+        cardSecondary: "#FF6A8E",
       },
     },
   },
