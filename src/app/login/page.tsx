@@ -1,7 +1,24 @@
+"use client";
+
+import { createBrowserClient } from "@supabase/ssr";
 import { FcGoogle } from "react-icons/fc";
 import { TiHeartFullOutline } from "react-icons/ti";
 
 export default function Page() {
+  const supabase = createBrowserClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  );
+
+  const handleGoogleLogin = async () => {
+    await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        redirectTo: `${location.origin}/auth/callback`,
+      },
+    });
+  };
+
   return (
     <section className="flex items-center justify-center min-h-screen px-4">
       <div className="max-w-md w-full text-center">
@@ -16,7 +33,10 @@ export default function Page() {
         <p className="text-base text-gray-500 mb-7">
           Generate pickup line for your crush now!
         </p>
-        <button className="w-full flex items-center justify-center gap-2 text-center font-semibold p-3 bg-button text-secondary border border-none rounded-3xl shadow-sm hover:bg-gray-100">
+        <button
+          onClick={handleGoogleLogin}
+          className="w-full flex items-center justify-center gap-2 text-center font-semibold p-3 bg-button text-secondary border border-none rounded-3xl shadow-sm hover:bg-gray-100"
+        >
           <FcGoogle size={24} />
           Sign up with Google
         </button>

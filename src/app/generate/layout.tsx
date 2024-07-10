@@ -24,10 +24,9 @@ export default function RootLayout({
         <img
           src="/background/bg-img.png"
           alt="Background"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="opacity-25 absolute inset-0 w-full h-full object-cover"
         />
-
-        {children}
+        <div className="relative z-10">{children}</div>
       </div>
     </html>
   );

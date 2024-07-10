@@ -16,7 +16,14 @@ const config: Config = {
         button: "#FAFAFA",
         cardPrimary: "#B5002C",
         cardSecondary: "#FF6A8E",
+        logout: "#B5002C",
+        logoutBack:"rgba(181, 0, 44, 0.25)"
       },
+    },
+  },
+  variants: {
+    extend: {
+      placeholderColor: ['hover', 'focus'],
     },
   },
   plugins: [],
